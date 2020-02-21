@@ -15,24 +15,35 @@ class LoadingButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.all(30),
-      height: 60,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(60),
-        color: Colors.white.withOpacity(0.8),
-      ),
-      child: FlatButton(
-        child: Text(
-          text,
-          style: TextStyle(
-            color: Theme.of(context).primaryColor,
-            fontSize: 30,
-            fontFamily: "Big Shoulders Display",
-          ),
-        ),
-        onPressed: func,
-      ),
-    );
+    return busy
+        ? Container(
+            alignment: Alignment.center,
+            height: 50,
+            child: CircularProgressIndicator(
+              backgroundColor: Colors.white,
+            ),
+          )
+        : Container(
+            margin: EdgeInsets.all(30),
+            height: 60,
+            width: double.infinity,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(60),
+              color: invert
+                  ? Theme.of(context).primaryColor
+                  : Colors.white.withOpacity(0.8),
+            ),
+            child: FlatButton(
+              child: Text(
+                text,
+                style: TextStyle(
+                  color: invert ? Colors.white : Theme.of(context).primaryColor,
+                  fontSize: 30,
+                  fontFamily: "Big Shoulders Display",
+                ),
+              ),
+              onPressed: func,
+            ),
+          );
   }
 }
