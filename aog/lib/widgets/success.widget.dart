@@ -13,7 +13,7 @@ class Success extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.all(30),
+      margin: EdgeInsets.all(15),
       decoration: BoxDecoration(
         color: Colors.white.withOpacity(0.8),
         borderRadius: BorderRadius.circular(25),
@@ -21,7 +21,7 @@ class Success extends StatelessWidget {
       child: Column(
         children: <Widget>[
           SizedBox(
-            height: 50,
+            height: 30,
           ),
           Text(
             result,
@@ -33,7 +33,7 @@ class Success extends StatelessWidget {
             textAlign: TextAlign.center,
           ),
           SizedBox(
-            height: 20,
+            height: 15,
           ),
           LoadingButton(
             busy: false,
